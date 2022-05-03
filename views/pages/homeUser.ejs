@@ -1,0 +1,161 @@
+<% if(user){%>
+    <div class="user_info" style="--blue: <%=user.color%>; --url: url(/img/<%=user.background%>)">
+        <section class="main_user">
+            <div class="header_user">
+                <img src="/img/<%= user.photo %>" alt="">
+                <h3 class="name">
+                    <%= user.name %>
+                </h3>
+                <p class="post">
+                    <%= user.post %>
+                </p>
+            </div>
+            <nav class="header_navbar">
+                <ul>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#About">About</a></li>
+                    <li><a href="#Service">Service</a></li>
+                    <li><a href="#Education">Education</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section class="home_user">
+            <div class="home_user_content" id="Home">
+                <h3>HI THERE !</h3>
+                <h1>I'M <span>
+                        <%= user.name %>
+                    </span></h1>
+                <p>
+                    <%= user.intro %>
+                </p>
+                <a href="#About">About me</a>
+            </div>
+            <div class="about_user_content" id="About">
+                <h1 class="about_title"><span>About</span> Me</h1>
+                <div class="about_info">
+                    <div class="about_info_left">
+                        <div class="about_left_name about_left">
+                            Name: <span>
+                                <%= user.name %>
+                            </span>
+                        </div>
+                        <div class="about_left_age about_left">
+                            Age: <span>
+                                <%= user.age %>
+                            </span>
+                        </div>
+                        <div class="about_left_qualification about_left">
+                            Qualification: <span>
+                                <%= user.edu[0].qualification %>
+                            </span>
+                        </div>
+                        <div class="about_left_post about_left">
+                            Post: <span>
+                                <%= user.edu[0].post %>
+                            </span>
+                        </div>
+                        <div class="about_left_language about_left">
+                            Language: <span>
+                                <%= user.edu[0].language %>
+                            </span>
+                        </div>
+                        <% user.edu[0].aboutBonus.forEach(ele=> { %>
+                            <div class="about_left_language about_left">
+                                <%= ele.title %>: <span>
+                                        <%= ele.description %>
+                                    </span>
+                            </div>
+                            <%}) %>
+                                <%if(user.cv){ %>
+                                    <a class="btn-download" href="/get_cv?cv=<%=user._id%>">Download CV <i
+                                            class="fas fa-download"></i></a>
+                                    <%}else{ %>
+                                        <div class="btn-download btn-download-black" href="/get_cv?cv=<%=user._id%>">
+                                            Download CV <i class="fas fa-download"></i></div>
+                                        <p style="padding: 0 0 0 3rem;">Cv is not uploaded</p>
+                                        <%} %>
+                    </div>
+                    <div class="about_info_right">
+                        <% user.edu[0].accomplishment.forEach(ele=> { %>
+                            <div class="about_right">
+                                <div class="about_right_number">
+                                    <%=ele.num%>
+                                </div>
+                                <div class="about_right_letter">
+                                    <%=ele.type%>
+                                </div>
+                            </div>
+                            <%}) %>
+                    </div>
+                </div>
+            </div>
+            <div class="service_user_content" id="Service">
+                <h1 class="about_title">My <span>Service</span></h1>
+                <div class="service_info">
+                    <% user.edu[0].experiance.forEach(ele=> { %>
+                        <div class="service_info_item">
+                            <div class="service_item_title">
+                                <%=ele.name%>
+                            </div>
+                            <div class="service_item_progress" style="--percent: <%=ele.percent%>"><span>
+                                    <%=ele.percent%>
+                                </span></div>
+                        </div>
+                        <%}) %>
+                </div>
+            </div>
+            <div class="education_user_content" id="Education">
+                <h1 class="about_title">My<span> Education</span></h1>
+                <div class="education_info">
+                    <% user.edu[0].education.forEach(ele=> { %>
+                        <div class="edu_box">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>
+                                <%=ele.year%>
+                            </span>
+                            <h4>
+                                <%=ele.title%>
+                            </h4>
+                            <p>
+                                <%=ele.description%>
+                            </p>
+                        </div>
+                        <%}) %>
+                </div>
+            </div>
+            <div class="contact_user_content" id="Contact">
+                <h1 class="about_title"><span>Contact</span> Me</h1>
+                <div class="contact_info">
+                    <div class="contact_info_left">
+                        <div class="contact_left_title">CONTACT INFO</div>
+                        <div class="contact_left_item">
+                            <i class="fas fa-envelope"></i>
+                            <%= user.email %>
+                        </div>
+                        <div class="contact_left_item">
+                            <i class="fas fa-phone"></i>
+                            <%= user.phone %>
+                        </div>
+                        <div class="contact_left_item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <%= user.address %>
+                        </div>
+                        <div class="contact_left_item">
+                            <i class="fas fa-share-alt"></i>
+                            <a style="color: white;" href="<%= user.socialNetwork %>">Link social network (click me)</a>
+                        </div>
+                    </div>
+                    <div class="contact_info_right">
+                        <form action="" class="contactMe">
+                            <label for="input_message">SEND MESSAGE FOR ME</label>
+                            <textarea name="" id="input_message" cols="30" rows="10"></textarea>
+                            <button data-id="<%= user._id%>" type="submit">SEND MESSAGE</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <% } %>

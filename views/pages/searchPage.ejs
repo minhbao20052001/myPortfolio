@@ -1,0 +1,33 @@
+<main class="main main-seach-page">
+    <% if(users.length> 0){ %>
+        <% users.forEach(ele=> { %>
+            <div class="user_search">
+                <div class="user_item">
+                    <div class="user_item_img">
+                        <img src="/img/<%= ele.photo%>" alt="img_user">
+                    </div>
+                    <div class="user_item_content">
+                        <a href="/<%= ele.slug%>" class="user_name">
+                            <h3>
+                                <%= ele.name%> - <%= ele.edu[0].post%>
+                            </h3>
+                        </a>
+                        <div class="user_contact">
+                            <div class="user_email">Email: <%= ele.email%>
+                            </div>
+                            <div class="user_age">Age: <%= ele.age%>
+                            </div>
+                            <div class="user_phone">Phone: <%= ele.phone%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user_with_chat">
+                    <button data-id="<%= ele.id%>%>" class="btn btn-with-chat">Chat me</button>
+                </div>
+            </div>
+            <% }) %>
+                <% }else{ %>
+                    <h1 style="margin-left: 20rem;">No found user</h1>
+                    <% }%>
+</main>

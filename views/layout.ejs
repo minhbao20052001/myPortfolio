@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My portfolio</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.0/axios.min.js"
+        integrity="sha512-yt+yearry6Evoodvr9oWzfGBYcXRyXAbJNZRyD7bHUHs39vj82vnRv1zCqzdh+bShT+c9IQ4T+uX3CmLofd4ig=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+    <div class=" container ">
+        <%- body %>
+    </div>
+
+    <%- include('./partials/footer') %>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/index.js"></script>
+        <script src="/js/login.js"></script>
+</body>
+
+</html>

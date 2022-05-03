@@ -1,0 +1,73 @@
+<main class="main" style="--blue: <%=user.color%>; --url: url(/img/<%=user.background%>)">
+    <div class="user-view">
+        <nav class="user-view__menu">
+            <ul class="side-nav">
+                <li class="side-nav--active"><a href="/set_user"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="/set_infor"><i class="fas fa-info"></i> My information</a></li>
+                <li><a href="/set_edu"><i class="fas fa-graduation-cap"></i> My education</a></li>
+                <li><a href="#"><i class="fas fa-wallet"></i> Comming soon</a></li>
+            </ul>
+        </nav>
+        <div class="user-view__content">
+            <div class="user-view__form-container">
+                <h2 class="heading-secondary ma-bt-md">Your account settings</h2>
+                <div class="alert" role="alert">
+                </div>
+                <form class="form form-user-data form-set-user">
+                    <div class="form__group"><label class="form__label" for="name">Name</label>
+                        <input class="form__input" id="name" type="text" value="<%= user.name %>" required="required" />
+                    </div>
+                    <div class="form__group ma-bt-md"><label class="form__label" for="email">Email address</label>
+                        <input class="form__input" id="email" type="email" value="<%= user.email %>"
+                            required="required" />
+                    </div>
+                    <div class="form__group ma-bt-md"><label class="form__label" for="color">Select color</label>
+                        <input class="" id="color" type="color" value="<%= user.color %>" required="required" />
+                    </div>
+                    <div class="form__group ma-bt-md">
+                        <label class="form__label">Select photo</label>
+                        <img class="form__user-photo" src="img/<%= user.photo %>" alt="User photo" />
+                        <input type="file" class="form__upload" accept="image/*" id="photo" name="photo">
+                    </div>
+                    <div class="form__group ma-bt-md">
+                        <label class="form__label">Select backgroud photo</label>
+                        <img class="form__user-photo" src="img/<%= user.background %>" alt="User photo" />
+                        <input type="file" class="form__upload" accept="image/*" id="backgroudphoto"
+                            name="backgroudphoto">
+                    </div>
+                    <div class="form__group right" style="margin-bottom: 2rem;">
+                        <button class="btn btn--small btn--green">Save settings</button>
+                    </div>
+                </form>
+            </div>
+            <div class="user-view__form-container">
+                <h2 class="heading-secondary ma-bt-md">Upload CV</h2>
+                <form class="form form-upload-cv">
+                    <div class="form__group form__photo-upload">
+                        <input type="file" class="form__upload" accept="pdf/*" id="cv" name="cv">
+                    </div>
+                    <div class="form__group right" style="margin-bottom: 2rem;">
+                        <button class="btn btn--small btn--green">Save settings</button>
+                    </div>
+                </form>
+            </div>
+            <div class="user-view__form-container">
+                <h2 class="heading-secondary ma-bt-md">Password change (Coming soon)</h2>
+                <form class="form form-user-settings">
+                    <div class="form__group"><label class="form__label" for="password-current">Current
+                            password</label><input class="form__input" id="password-current" type="password"
+                            placeholder="••••••••" required="required" minlength="8" disabled /></div>
+                    <div class="form__group"><label class="form__label" for="password">New password</label><input
+                            class="form__input" id="password" type="password" placeholder="••••••••" required="required"
+                            minlength="8" disabled /></div>
+                    <div class="form__group ma-bt-lg"><label class="form__label" for="password-confirm">Confirm
+                            password</label><input class="form__input" id="password-confirm" type="password"
+                            placeholder="••••••••" required="required" minlength="8" disabled /></div>
+                    <div class="form__group right"><button class="btn btn--small btn--green" disabled>Save
+                            password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

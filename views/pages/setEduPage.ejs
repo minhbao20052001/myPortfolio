@@ -1,0 +1,86 @@
+<main class="main" style="--blue: <%=user.color%>; --url: url(/img/<%=user.background%>)">
+    <div class="user-view">
+        <nav class="user-view__menu">
+            <ul class="side-nav">
+                <li><a href="/set_user"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="/set_infor"><i class="fas fa-info"></i> My information</a></li>
+                <li class="side-nav--active"><a href="/set_edu"><i class="fas fa-graduation-cap"></i> My education</a>
+                </li>
+                <li><a href="#"><i class="fas fa-wallet"></i> Comming soon</a></li>
+            </ul>
+        </nav>
+        <div class="user-view__content">
+            <div class="user-view__form-container">
+                <h2 class="heading-secondary ma-bt-md">Your account settings</h2>
+                <div class="alert" role="alert">
+                </div>
+                <form class="form form-user-data form-set-edu">
+                    <div class="form__group"><label class="form__label" for="qualification">Certification</label>
+                        <input class="form__input" id="qualification" type="text" value="<%= edu.qualification %>"
+                            required="required" />
+                    </div>
+                    <div class="form__group"><label class="form__label" for="post">Areas of Expertise</label>
+                        <input class="form__input" id="post" type="text" value="<%= edu.post %>" required="required" />
+                    </div>
+                    <div class="form__group"><label class="form__label" for="language">Language</label>
+                        <input class="form__input" id="language" type="text" value="<%= edu.language %>"
+                            required="required" />
+                    </div>
+                    <div class="form__group" id="accomplishment"><label class="form__label">Accomplishment</label>
+                        <button class="btn btn__form--bonus"><i class="fas fa-plus-circle"></i> Add</button>
+                        <% edu.accomplishment.forEach(ele=> { %>
+                            <div class="form__group-arr">
+                                <input class="form__input" type="text" name="num" value="<%= ele.num %>"
+                                    placeholder="ex: first prize" required="required" />
+                                <input class="form__input" type="text" name="type" value="<%= ele.type %>"
+                                    placeholder="ex: scientific research 2020" required="required" />
+                            </div>
+                            <% }) %>
+
+                    </div>
+                    <div class="form__group" id="experiance"><label class="form__label">Experience</label>
+                        <button class="btn btn__form--bonus"><i class="fas fa-plus-circle"></i> Add</button>
+                        <% edu.experiance.forEach(ele=> { %>
+                            <div class="form__group-arr">
+                                <input class="form__input" type="text" name="name" value="<%= ele.name %>"
+                                    placeholder="Name (ex: Math)" required="required" />
+                                <input class="form__input" type="text" name="percent" value="<%= ele.percent %>"
+                                    placeholder="Percent (ex: 70%)" required="required" />
+                            </div>
+                            <% }) %>
+
+                    </div>
+                    <div class="form__group" id="education"><label class="form__label">Education</label>
+                        <button class="btn btn__form--bonus"><i class="fas fa-plus-circle"></i> Add</button>
+                        <% edu.education.forEach(ele=> { %>
+                            <div class="form__group-arr3 form__group-arr3">
+                                <input class="form__input" type="text" name="year" value="<%= ele.year %>"
+                                    placeholder="Year" required="required" />
+                                <input class="form__input" type="text" name="title" value="<%= ele.title %>"
+                                    placeholder="Title" required="required" />
+                                <input class="form__input" type="text" name="description" value="<%= ele.description %>"
+                                    placeholder="Description" required="required" />
+                            </div>
+                            <% }) %>
+
+                    </div>
+                    <div class="form__group" id="aboutbonus"><label class="form__label">More
+                            details</label>
+                        <button class="btn btn__form--bonus"><i class="fas fa-plus-circle"></i> Add</button>
+                        <% edu.aboutBonus.forEach(ele=> { %>
+                            <div class="form__group-arr">
+                                <input class="form__input" type="text" name="title" value="<%= ele.title %>"
+                                    placeholder="Title(Ex: Toeic)" required="required" />
+                                <input class="form__input" type="text" name="description" value="<%= ele.description %>"
+                                    placeholder="Description(Ex: 700)" required="required" />
+                            </div>
+                            <% }) %>
+                    </div>
+                    <div class="form__group right">
+                        <button class="btn btn--small btn--green">Save settings</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,44 @@
+<main class="main" style="--blue: <%=user.color%>; --url: url(/img/<%=user.background%>)">
+    <div class="user-view">
+        <nav class="user-view__menu">
+            <ul class="side-nav">
+                <li><a href="/set_user"><i class="fas fa-cog"></i> Settings</a></li>
+                <li class="side-nav--active"><a href="/set_infor"><i class="fas fa-info"></i> My information</a></li>
+                <li><a href="/set_edu"><i class="fas fa-graduation-cap"></i> My education</a></li>
+                <li><a href="#"><i class="fas fa-wallet"></i> Comming soon</a></li>
+            </ul>
+        </nav>
+        <div class="user-view__content">
+            <div class="user-view__form-container">
+                <h2 class="heading-secondary ma-bt-md">Your information settings</h2>
+                <div class="alert" role="alert">
+                </div>
+                <form class="form form-user-data form-set-infor">
+                    <div class="form__group"><label class="form__label" for="age">Age</label>
+                        <input class="form__input" id="age" type="text" value="<%= user.age %>" required="required" />
+                    </div>
+                    <div class="form__group"><label class="form__label" for="phone">Phone</label>
+                        <input class="form__input" id="phone" type="text" value="<%= user.phone %>"
+                            required="required" />
+                    </div>
+                    <div class="form__group"><label class="form__label" for="address">Address</label>
+                        <input class="form__input" id="address" type="text" value="<%= user.address %>"
+                            required="required" />
+                    </div>
+                    <div class="form__group"><label class="form__label" for="socialNetwork">Social Network
+                            (Link)</label>
+                        <input class="form__input" id="socialNetwork" type="text" value="<%= user.socialNetwork %>"
+                            required="required" />
+                    </div>
+                    <div class="form__group ma-bt-md"><label class="form__label" for="intro">Introduction</label>
+                        <input class="form__input" id="intro" type="text" value="<%= user.intro %>"
+                            required="required" />
+                    </div>
+                    <div class="form__group right">
+                        <button class="btn btn--small btn--green">Save settings</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
